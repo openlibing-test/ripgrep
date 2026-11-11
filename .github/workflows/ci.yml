@@ -1,11 +1,14 @@
 name: ci
+# Original triggers preserved; manual-only for test cost control.
+# on:
+#   pull_request:
+#   push:
+#     branches:
+#     - master
+#   schedule:
+#   - cron: '00 01 * * *'
 on:
-  pull_request:
-  push:
-    branches:
-    - master
-  schedule:
-  - cron: '00 01 * * *'
+  workflow_dispatch:
 
 # The section is needed to drop write-all permissions that are granted on
 # `schedule` event. By specifying any permission explicitly all others are set
