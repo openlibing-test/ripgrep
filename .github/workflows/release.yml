@@ -11,13 +11,16 @@
 # The key here is that we create the release only once.
 
 name: release
+# Original triggers preserved; manual-only for test cost control.
+# on:
+#   push:
+#     # Enable when testing release infrastructure on a branch.
+#     # branches:
+#     # - ag/release
+#     tags:
+#     - '[0-9]+.[0-9]+.[0-9]+'
 on:
-  push:
-    # Enable when testing release infrastructure on a branch.
-    # branches:
-    # - ag/release
-    tags:
-    - '[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
 jobs:
   create-release:
     name: create-release
