@@ -1,11 +1,14 @@
 name: ci
+# Original triggers preserved; manual-only for test cost control.
+# on:
+#   pull_request:
+#   push:
+#     branches:
+#     - master
+#   schedule:
+#     cron: '00 01 * * *'
 on:
-  pull_request:
-  push:
-    branches:
-    - master
-  schedule:
-    cron: '00 01 * * *'
+  workflow_dispatch:
 jobs:
   test:
     name: test
