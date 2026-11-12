@@ -36,7 +36,7 @@ jobs:
         run: |
           mkdir -p clippy-evidence
           set +e
-          cargo clippy --message-format=json 2>clippy-evidence/cargo-stderr.txt | tee clippy-evidence/cargo.jsonl | clippy-sarif > clippy-evidence/clippy-results.sarif
+          cargo clippy --workspace --all-targets --message-format=json 2>clippy-evidence/cargo-stderr.txt | tee clippy-evidence/cargo.jsonl | clippy-sarif > clippy-evidence/clippy-results.sarif
           statuses=("${PIPESTATUS[@]}")
           printf '%s\n' "${statuses[@]}" > clippy-evidence/pipeline-status.txt
           cp clippy-evidence/clippy-results.sarif clippy-evidence/before-upload.sarif
